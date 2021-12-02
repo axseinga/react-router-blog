@@ -4,10 +4,13 @@ import HomepageBanner from "./HomepageBanner";
 import StyledHomepage from "./styled/Homepage.styled";
 import PostsContainer from "./PostsContainer";
 import Sidebar from "./Sidebar";
+import { HashRouter as Router } from "react-router-dom";
 
 const Homepage = () => {
     const [doc, setDocData] = useState(null);
     const [posts, setPostsData] = useState(null);
+    const [authors, setAuthorsData] = useState(null);
+    const [currentAuthor, setcurrentAuthor] = useState("");
 
     useEffect(() => {
         fetchData("page").then((resp) => {
@@ -21,16 +24,31 @@ const Homepage = () => {
             });
             setPostsData(sorted);
         });
+        fetchData("categor").then((resp) => {
+            setAuthorsData(resp.results[0].data.categories);
+        });
     }, []);
 
+    const getAuthor = (author) => {
+        setcurrentAuthor(author);
+    };
+
     return (
-        <StyledHomepage>
-            <div>
-                <HomepageBanner doc={doc} />
-                {posts !== null && <PostsContainer posts={posts} />}
-            </div>
-            {posts !== null && <Sidebar posts={posts} />}
-        </StyledHomepage>
+        <Router>
+            <StyledHomepage>
+                <div>
+                    <HomepageBanner
+                        doc={doc}
+                        authors={authors}
+                        getAuthor={getAuthor}
+                    />
+                    {posts !== null && (
+                        <PostsContainer posts={posts} author={currentAuthor} />
+                    )}
+                </div>
+                {posts !== null && <Sidebar posts={posts} />}
+            </StyledHomepage>
+        </Router>
     );
 };
 

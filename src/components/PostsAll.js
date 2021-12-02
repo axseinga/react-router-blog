@@ -4,7 +4,7 @@ import Post from "./Post";
 
 const Posts = (props) => {
     const showContent = (props) => {
-        const { posts } = props;
+        const posts = props;
         return posts.map((post) => {
             return <Post key={post.id} post={post} />;
         });

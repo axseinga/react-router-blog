@@ -1,9 +1,21 @@
 import React from "react";
-import Posts from "./PostsAll";
+import PostsAll from "./PostsAll";
+import PostsByAuthor from "./PostsByAuthor";
+import { Route, useParams } from "react-router";
 
 const PostsContainer = (props) => {
-    const posts = props;
-    return <Posts posts={posts} />;
+    const { posts, author } = props;
+    const { name } = useParams();
+    return (
+        <>
+            <Route exact path="/">
+                <PostsAll posts={posts} />
+            </Route>
+            <Route exact path="/posts-by-:name">
+                <PostsByAuthor posts={posts} author={author} />
+            </Route>
+        </>
+    );
 };
 
 export default PostsContainer;

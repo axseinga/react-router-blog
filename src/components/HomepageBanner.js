@@ -1,6 +1,7 @@
 import React from "react";
 import { RichText } from "prismic-reactjs";
 import StyledHomepageBanner from "./styled/HomepageBanner.styled";
+import { NavLink } from "react-router-dom";
 
 const HomepageBanner = (props) => {
     const showContent = (props) => {
@@ -15,7 +16,13 @@ const HomepageBanner = (props) => {
                         <p>Our authors:</p>
                         <div>
                             {imgs.map((img, i) => (
-                                <img key={i} src={img.url} />
+                                <NavLink
+                                    to={`/posts-by-${img.alt}`}
+                                    key={i}
+                                    onClick={() => props.getAuthor(img.alt)}
+                                >
+                                    <img src={img.url} />
+                                </NavLink>
                             ))}
                         </div>
                     </div>
