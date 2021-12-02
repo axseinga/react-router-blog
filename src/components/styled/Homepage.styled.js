@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const StyledHomepage = styled.div`
-    background-color: lightpink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;
 
 export default StyledHomepage;

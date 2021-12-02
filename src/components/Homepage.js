@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import fetchData from "../prismic-configuration";
 import HomepageBanner from "./HomepageBanner";
 import StyledHomepage from "./styled/Homepage.styled";
+import PostsContainer from "./PostsContainer";
 
 const Homepage = () => {
     const [doc, setDocData] = useState(null);
@@ -16,7 +17,7 @@ const Homepage = () => {
     return (
         <StyledHomepage>
             <HomepageBanner doc={doc} />
-            <div>This is going to be main page...</div>
+            <PostsContainer doc={doc} />
         </StyledHomepage>
     );
 };
