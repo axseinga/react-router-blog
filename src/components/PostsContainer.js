@@ -4,21 +4,12 @@ import Post from "./Post";
 
 const PostsContainer = (props) => {
     const showContent = (props) => {
-        if (props.doc) {
-            console.log(props);
-            /*const imgs = Object.keys(props.doc.data.avatars[0]).map((key) => {
-                return props.doc.data.avatars[0][key];
-            });*/
-            return <div>sa posty</div>;
-        } else {
-            return <div>No posts</div>;
-        }
+        const { posts } = props;
+        return posts.map((post) => {
+            return <Post key={post.id} post={post} />;
+        });
     };
-    return (
-        <StyledPostsContainer>
-            <Post />
-        </StyledPostsContainer>
-    );
+    return <StyledPostsContainer>{showContent(props)}</StyledPostsContainer>;
 };
 
 export default PostsContainer;

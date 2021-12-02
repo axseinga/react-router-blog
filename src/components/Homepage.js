@@ -6,18 +6,21 @@ import PostsContainer from "./PostsContainer";
 
 const Homepage = () => {
     const [doc, setDocData] = useState(null);
+    const [posts, setPostsData] = useState(null);
 
     useEffect(() => {
-        fetchData().then((resp) => {
-            console.log(resp);
-            setDocData(resp);
+        fetchData("page").then((resp) => {
+            setDocData(resp.results[0]);
+        });
+        fetchData("post").then((resp) => {
+            setPostsData(resp.results);
         });
     }, []);
 
     return (
         <StyledHomepage>
             <HomepageBanner doc={doc} />
-            <PostsContainer doc={doc} />
+            {posts !== null && <PostsContainer posts={posts} />}
         </StyledHomepage>
     );
 };

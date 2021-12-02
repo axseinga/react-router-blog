@@ -5,14 +5,13 @@ const accessToken = "";
 
 const Client = Prismic.client(apiEndpoint, { accessToken });
 
-const fetchData = async () => {
+const fetchData = async (type) => {
     const response = await Client.query(
-        Prismic.Predicates.at("document.type", "page")
+        Prismic.Predicates.at("document.type", type)
     );
     if (response) {
-        return response.results[0];
+        return response;
     }
 };
-fetchData();
 
 export default fetchData;
