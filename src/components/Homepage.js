@@ -7,6 +7,7 @@ import PostsContainer from "./PostsContainer";
 const Homepage = () => {
     const [doc, setDocData] = useState(null);
     const [posts, setPostsData] = useState(null);
+    const [categories, setCategoriesData] = useState(null);
 
     useEffect(() => {
         fetchData("page").then((resp) => {
@@ -19,6 +20,9 @@ const Homepage = () => {
                 return b > a ? 1 : b < a ? -1 : 0;
             });
             setPostsData(sorted);
+        });
+        fetchData("categor").then((resp) => {
+            console.log(resp);
         });
     }, []);
 

@@ -21,6 +21,17 @@ const StyledPost = styled.article`
         line-height: 2.5rem;
     }
 
+    & ul {
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+
+        & li {
+            margin-left: 0.5rem;
+        }
+    }
+
     & img {
         width: 70%;
         height: auto;
