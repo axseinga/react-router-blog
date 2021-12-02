@@ -3,11 +3,11 @@ import fetchData from "../prismic-configuration";
 import HomepageBanner from "./HomepageBanner";
 import StyledHomepage from "./styled/Homepage.styled";
 import PostsContainer from "./PostsContainer";
+import Sidebar from "./Sidebar";
 
 const Homepage = () => {
     const [doc, setDocData] = useState(null);
     const [posts, setPostsData] = useState(null);
-    const [categories, setCategoriesData] = useState(null);
 
     useEffect(() => {
         fetchData("page").then((resp) => {
@@ -21,15 +21,15 @@ const Homepage = () => {
             });
             setPostsData(sorted);
         });
-        fetchData("categor").then((resp) => {
-            console.log(resp);
-        });
     }, []);
 
     return (
         <StyledHomepage>
-            <HomepageBanner doc={doc} />
-            {posts !== null && <PostsContainer posts={posts} />}
+            <div>
+                <HomepageBanner doc={doc} />
+                {posts !== null && <PostsContainer posts={posts} />}
+            </div>
+            {posts !== null && <Sidebar posts={posts} />}
         </StyledHomepage>
     );
 };

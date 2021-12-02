@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledPost = styled.article`
-    width: 60%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,9 +16,14 @@ const StyledPost = styled.article`
         letter-spacing: 0.7rem;
     }
 
+    & h4 {
+        text-align: justify;
+    }
+
     & p {
-        padding: 1.5rem 0;
+        padding: 1rem 0;
         line-height: 2.5rem;
+        text-align: justify;
     }
 
     & ul {
