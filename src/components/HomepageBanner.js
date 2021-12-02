@@ -12,9 +12,12 @@ const HomepageBanner = (props) => {
                 <StyledHomepageBanner>
                     <h1>{RichText.asText(props.doc.data.page_title)}</h1>
                     <div>
-                        {imgs.map((img, i) => (
-                            <img key={i} src={img.url} />
-                        ))}
+                        <p>Our authors:</p>
+                        <div>
+                            {imgs.map((img, i) => (
+                                <img key={i} src={img.url} />
+                            ))}
+                        </div>
                     </div>
                 </StyledHomepageBanner>
             );

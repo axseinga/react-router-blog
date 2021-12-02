@@ -13,7 +13,12 @@ const Homepage = () => {
             setDocData(resp.results[0]);
         });
         fetchData("post").then((resp) => {
-            setPostsData(resp.results);
+            const sorted = resp.results.sort((a, b) => {
+                a = a.data.date;
+                b = b.data.date;
+                return b > a ? 1 : b < a ? -1 : 0;
+            });
+            setPostsData(sorted);
         });
     }, []);
 
