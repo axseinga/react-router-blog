@@ -9,7 +9,6 @@ const PostsByAuthor = (props) => {
     const filteredPosts = posts.filter(
         (post) => post.data.author[0].text === author
     );
-    console.log(filteredPosts);
 
     const showContent = () => {
         return filteredPosts.map((post) => {

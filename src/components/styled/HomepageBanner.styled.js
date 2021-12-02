@@ -4,8 +4,11 @@ const StyledHomepageBanner = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+
     & h1 {
-        font-size: 2.5rem;
+        font-family: "Dancing Script", cursive;
+        font-size: 5rem;
+        margin: 6rem 0;
     }
     & > div {
         display: flex;

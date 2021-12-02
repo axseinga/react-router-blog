@@ -13,7 +13,7 @@ const HomepageBanner = (props) => {
                 <StyledHomepageBanner>
                     <h1>{RichText.asText(props.doc.data.page_title)}</h1>
                     <div>
-                        <p>Our authors:</p>
+                        <p>Choose the author!</p>
                         <div>
                             {imgs.map((img, i) => (
                                 <NavLink
