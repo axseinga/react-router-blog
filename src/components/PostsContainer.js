@@ -1,15 +1,9 @@
 import React from "react";
-import StyledPostsContainer from "./styled/PostsContainer.styled";
-import Post from "./Post";
+import Posts from "./PostsAll";
 
 const PostsContainer = (props) => {
-    const showContent = (props) => {
-        const { posts } = props;
-        return posts.map((post) => {
-            return <Post key={post.id} post={post} />;
-        });
-    };
-    return <StyledPostsContainer>{showContent(props)}</StyledPostsContainer>;
+    const posts = props;
+    return <Posts posts={posts} />;
 };
 
 export default PostsContainer;
