@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledAboutAuthor = styled.article`
-    width: 90%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,12 +12,9 @@ const StyledAboutAuthor = styled.article`
     border-bottom: 1px solid lightgrey;
 
     & h2 {
-        font-size: 2rem;
+        font-size: 3rem;
         letter-spacing: 0.7rem;
-    }
-
-    & h4 {
-        text-align: justify;
+        font-family: "Dancing Script", cursive;
     }
 
     & p {
@@ -26,32 +23,47 @@ const StyledAboutAuthor = styled.article`
         text-align: justify;
     }
 
-    & ul {
-        list-style: none;
-        display: flex;
-        justify-content: flex-end;
+    & div {
         width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
 
-        & li {
-            margin-left: 0.5rem;
+        & .nav_link {
+            &:link,
+            &:active,
+            &:visited {
+                font-size: 2rem;
+                font-family: "Dancing Script", cursive;
+                text-decoration: none;
+                color: black;
+            }
+
+            &:hover {
+                animation: pulse-black 1s infinite;
+            }
+        }
+
+        & img {
+            width: 30%;
+            height: auto;
+            outline: 1px solid white;
+            outline-offset: -4px;
         }
     }
 
-    & img {
-        width: 70%;
-        height: auto;
-        outline: 1px solid white;
-        outline-offset: -4px;
-    }
+    @keyframes pulse-black {
+        0% {
+            transform: scale(0.95);
+        }
 
-    & div {
-        margin-top: 2rem;
-        width: 100%;
-        text-align: right;
-    }
+        70% {
+            transform: scale(1);
+        }
 
-    & span {
-        margin-right: 0.5rem;
+        100% {
+            transform: scale(0.95);
+        }
     }
 `;
 
