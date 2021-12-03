@@ -13,6 +13,7 @@ const Homepage = () => {
     const [currentAuthor, setcurrentAuthor] = useState("");
     const [currentTag, setCurrentTag] = useState("");
     const [currentYear, setCurrentYear] = useState("");
+    const [slug, setSlug] = useState("");
 
     useEffect(() => {
         fetchData("page").then((resp) => {
@@ -43,6 +44,11 @@ const Homepage = () => {
         setCurrentYear(year);
     };
 
+    const getSlug = (uid) => {
+        console.log(uid);
+        setSlug(uid);
+    };
+
     return (
         <Router>
             <StyledHomepage>
@@ -58,6 +64,8 @@ const Homepage = () => {
                             author={currentAuthor}
                             tag={currentTag}
                             year={currentYear}
+                            getSlug={getSlug}
+                            slug={slug}
                         />
                     )}
                 </div>

@@ -16,6 +16,7 @@ const Sidebar = (props) => {
             return (
                 <NavLink
                     key={cat}
+                    exact
                     to={`/category/${cat}`}
                     className={(isActive) =>
                         "nav-link" + (!isActive ? " unselected" : "")
@@ -32,6 +33,7 @@ const Sidebar = (props) => {
         return years.map((y) => {
             return (
                 <NavLink
+                    exact
                     key={y}
                     to={`/year/${y}`}
                     className={(isActive) =>
@@ -48,6 +50,7 @@ const Sidebar = (props) => {
         <StyledSidebar>
             <h4>Navigation</h4>
             <NavLink
+                exact
                 to={`/`}
                 className={(isActive) =>
                     "nav-link" + (!isActive ? " unselected" : "")
@@ -56,6 +59,7 @@ const Sidebar = (props) => {
                 Home
             </NavLink>
             <NavLink
+                exact
                 to={`/about-us`}
                 className={(isActive) =>
                     "nav-link" + (!isActive ? " unselected" : "")
@@ -64,9 +68,13 @@ const Sidebar = (props) => {
                 About us
             </NavLink>
             <h5>Categories</h5>
-            <div>{ShowCategories()}</div>
+            <div>
+                <ShowCategories />
+            </div>
             <h5>By year:</h5>
-            <div>{ShowYearLinks()}</div>
+            <div>
+                <ShowYearLinks />
+            </div>
         </StyledSidebar>
     );
 };

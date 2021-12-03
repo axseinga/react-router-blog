@@ -11,9 +11,13 @@ const Post = (props) => {
     const tags = post.data.tags;
     const author = post.data.author[0].text;
     const date = post.data.date;
+    const uid = post.uid;
+
     return (
         <StyledPost>
-            <h2>{title}</h2>
+            <Link to={`/post/${uid}`}>
+                <h2>{title}</h2>
+            </Link>
             <h4>{desc}</h4>
             <p>{content}</p>
             <img src={img} />

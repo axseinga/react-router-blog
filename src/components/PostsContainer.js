@@ -5,12 +5,14 @@ import { Route, useParams } from "react-router";
 import AboutPage from "./Aboutpage";
 import PostsByTag from "./PostsByTag";
 import PostsByYear from "./PostsByYear";
+import SinglePost from "./SinglePost";
 
 const PostsContainer = (props) => {
-    const { posts, author, tag, year } = props;
+    const { posts, author, tag, year, getSlug, slug } = props;
     const { name } = useParams();
     const { currentTag } = useParams();
     const { currentYear } = useParams();
+    const { slugParam } = useParams();
     return (
         <>
             <Route exact path="/">
@@ -27,6 +29,9 @@ const PostsContainer = (props) => {
             </Route>
             <Route exact path="/year/:currentYear">
                 <PostsByYear posts={posts} year={year} />
+            </Route>
+            <Route exact path="/post/:slugParam">
+                <SinglePost posts={posts} slug={slug} getSlug={getSlug} />
             </Route>
         </>
     );
