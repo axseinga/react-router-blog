@@ -25,7 +25,9 @@ const Post = (props) => {
                 ))}
             </ul>
             <div>
-                <span>Written by {author}</span>
+                <span>
+                    Written by <Link to={`/posts-by-${author}`}>{author}</Link>
+                </span>
                 <span>on {date}</span>
             </div>
         </StyledPost>

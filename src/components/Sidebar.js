@@ -11,7 +11,7 @@ const Sidebar = (props) => {
         cat.push(item.tag);
     });
     let uniqueCat = [...new Set(cat)];
-    const showCategories = () => {
+    const ShowCategories = () => {
         return uniqueCat.map((cat) => {
             return (
                 <NavLink
@@ -23,6 +23,23 @@ const Sidebar = (props) => {
                     onClick={() => props.getTag(cat)}
                 >
                     {cat}
+                </NavLink>
+            );
+        });
+    };
+    const ShowYearLinks = () => {
+        const years = [2021, 2020, 2019];
+        return years.map((y) => {
+            return (
+                <NavLink
+                    key={y}
+                    to={`/year/${y}`}
+                    className={(isActive) =>
+                        "nav-link" + (!isActive ? " unselected" : "")
+                    }
+                    onClick={() => props.getYear(y)}
+                >
+                    {y}
                 </NavLink>
             );
         });
@@ -47,9 +64,9 @@ const Sidebar = (props) => {
                 About us
             </NavLink>
             <h5>Categories</h5>
-            <div>{showCategories()}</div>
-            <h5>By month:</h5>
-            <div></div>
+            <div>{ShowCategories()}</div>
+            <h5>By year:</h5>
+            <div>{ShowYearLinks()}</div>
         </StyledSidebar>
     );
 };

@@ -12,6 +12,7 @@ const Homepage = () => {
     const [authors, setAuthorsData] = useState(null);
     const [currentAuthor, setcurrentAuthor] = useState("");
     const [currentTag, setCurrentTag] = useState("");
+    const [currentYear, setCurrentYear] = useState("");
 
     useEffect(() => {
         fetchData("page").then((resp) => {
@@ -38,6 +39,10 @@ const Homepage = () => {
         setCurrentTag(tag);
     };
 
+    const getYear = (year) => {
+        setCurrentYear(year);
+    };
+
     return (
         <Router>
             <StyledHomepage>
@@ -52,10 +57,13 @@ const Homepage = () => {
                             posts={posts}
                             author={currentAuthor}
                             tag={currentTag}
+                            year={currentYear}
                         />
                     )}
                 </div>
-                {posts !== null && <Sidebar posts={posts} getTag={getTag} />}
+                {posts !== null && (
+                    <Sidebar posts={posts} getTag={getTag} getYear={getYear} />
+                )}
             </StyledHomepage>
         </Router>
     );
