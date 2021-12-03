@@ -1,5 +1,6 @@
 import React from "react";
 import StyledPost from "./styled/Post.styled";
+import { Link } from "react-router-dom";
 
 const Post = (props) => {
     const { post } = props;
@@ -19,7 +20,7 @@ const Post = (props) => {
             <ul>
                 {tags.map((tag, i) => (
                     <li key={`tag_${i}`}>
-                        <a href="#">{tag.tag}</a>
+                        <Link to={`/category/${tag.tag}`}>{tag.tag}</Link>
                     </li>
                 ))}
             </ul>
