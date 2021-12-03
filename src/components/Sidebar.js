@@ -20,6 +20,7 @@ const Sidebar = (props) => {
                     className={(isActive) =>
                         "nav-link" + (!isActive ? " unselected" : "")
                     }
+                    onClick={() => props.getTag(cat)}
                 >
                     {cat}
                 </NavLink>

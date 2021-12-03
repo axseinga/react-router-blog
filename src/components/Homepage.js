@@ -11,6 +11,7 @@ const Homepage = () => {
     const [posts, setPostsData] = useState(null);
     const [authors, setAuthorsData] = useState(null);
     const [currentAuthor, setcurrentAuthor] = useState("");
+    const [currentTag, setCurrentTag] = useState("");
 
     useEffect(() => {
         fetchData("page").then((resp) => {
@@ -33,6 +34,10 @@ const Homepage = () => {
         setcurrentAuthor(author);
     };
 
+    const getTag = (tag) => {
+        setCurrentTag(tag);
+    };
+
     return (
         <Router>
             <StyledHomepage>
@@ -43,10 +48,14 @@ const Homepage = () => {
                         getAuthor={getAuthor}
                     />
                     {posts !== null && (
-                        <PostsContainer posts={posts} author={currentAuthor} />
+                        <PostsContainer
+                            posts={posts}
+                            author={currentAuthor}
+                            tag={currentTag}
+                        />
                     )}
                 </div>
-                {posts !== null && <Sidebar posts={posts} />}
+                {posts !== null && <Sidebar posts={posts} getTag={getTag} />}
             </StyledHomepage>
         </Router>
     );
