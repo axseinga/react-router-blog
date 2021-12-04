@@ -5,7 +5,7 @@ import Pagination from "./Pagination";
 
 const Posts = (props) => {
     const { posts, getSlug } = props;
-    const showContent = () => {
+    const ShowContent = (props) => {
         return (
             <Pagination posts={posts}>
                 {posts.map((post) => (
@@ -14,7 +14,11 @@ const Posts = (props) => {
             </Pagination>
         );
     };
-    return <StyledPosts>{showContent(props.posts)}</StyledPosts>;
+    return (
+        <StyledPosts>
+            <ShowContent posts={posts} />
+        </StyledPosts>
+    );
 };
 
 export default Posts;

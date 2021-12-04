@@ -11,12 +11,16 @@ const PostsByAuthor = (props) => {
         (post) => post.data.author[0].text === author
     );
 
-    const showContent = () => {
+    const ShowContent = () => {
         return filteredPosts.map((post) => {
             return <Post key={post.id} post={post} getSlug={getSlug} />;
         });
     };
-    return <StyledPosts>{showContent()}</StyledPosts>;
+    return (
+        <StyledPosts>
+            <ShowContent />
+        </StyledPosts>
+    );
 };
 
 export default PostsByAuthor;

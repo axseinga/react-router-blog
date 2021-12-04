@@ -9,10 +9,8 @@ import SinglePost from "./SinglePost";
 
 const PostsContainer = (props) => {
     const { posts, author, tag, year, getSlug, slug } = props;
-    const { name } = useParams();
-    const { currentTag } = useParams();
-    const { currentYear } = useParams();
-    const { slugParam } = useParams();
+    const { name, currentTag, currentYear, slugParam } = useParams();
+
     return (
         <>
             <Route exact path="/">

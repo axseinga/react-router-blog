@@ -32,7 +32,7 @@ const HomepageBanner = (props) => {
                 </StyledHomepageBanner>
             );
         } else {
-            return <div>No content</div>;
+            return <div>Loading content...</div>;
         }
     };
 
