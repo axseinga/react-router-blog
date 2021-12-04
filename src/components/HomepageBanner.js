@@ -21,7 +21,10 @@ const HomepageBanner = (props) => {
                                     key={i}
                                     onClick={() => props.getAuthor(img.alt)}
                                 >
-                                    <img src={img.url} />
+                                    <img
+                                        src={img.url}
+                                        alt={`choose-${img.alt}`}
+                                    />
                                 </NavLink>
                             ))}
                         </div>

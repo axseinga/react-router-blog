@@ -4,16 +4,17 @@ import Post from "./Post";
 
 const SinglePost = (props) => {
     const { posts, slug, getSlug } = props;
-    console.log(posts, slug, getSlug);
-    const ShowContent = (props) => {
-        const posts = props;
-        /*return posts.map((post) => {
-            return <Post key={post.id} post={post} />;
-        });*/
+    const ShowContent = () => {
+        console.log(slug);
+        const filteredPosts = posts.filter((post) => post.uid === slug);
+        console.log(filteredPosts);
+        return posts.map((post) => {
+            return <Post key={post.id} post={post} getSlug={getSlug} />;
+        });
     };
     return (
         <StyledPosts>
-            <div>tu bedzie post</div>
+            <ShowContent />
         </StyledPosts>
     );
 };

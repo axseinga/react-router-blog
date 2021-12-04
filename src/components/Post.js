@@ -3,7 +3,7 @@ import StyledPost from "./styled/Post.styled";
 import { Link } from "react-router-dom";
 
 const Post = (props) => {
-    const { post } = props;
+    const { post, getSlug } = props;
     const title = post.data.title[0].text;
     const desc = post.data.description[0].text;
     const content = post.data.content[0].text;
@@ -15,12 +15,12 @@ const Post = (props) => {
 
     return (
         <StyledPost>
-            <Link to={`/post/${uid}`}>
+            <Link to={`/post/${uid}`} onClick={() => getSlug(post.uid)}>
                 <h2>{title}</h2>
             </Link>
             <h4>{desc}</h4>
             <p>{content}</p>
-            <img src={img} />
+            <img src={img} alt={post.uid} />
             <ul>
                 {tags.map((tag, i) => (
                     <li key={`tag_${i}`}>

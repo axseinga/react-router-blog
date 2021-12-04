@@ -16,7 +16,7 @@ const AboutAuthor = ({ props }) => {
                 >
                     {RichText.asText(props.data.seemyposts)}
                 </NavLink>
-                <img src={img} />
+                <img src={img} alt={props.data.name} />
             </div>
         </StyledAboutAuthor>
     );

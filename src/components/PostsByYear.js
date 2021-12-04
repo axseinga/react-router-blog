@@ -5,6 +5,7 @@ import Post from "./Post";
 const PostsByYear = (props) => {
     const posts = props.posts;
     const year = props.year;
+    const getSlug = props.getSlug;
     const yearStr = year.toString();
 
     const filteredPosts = [];
@@ -15,7 +16,7 @@ const PostsByYear = (props) => {
     });
     const ShowContent = () => {
         return filteredPosts.map((post) => {
-            return <Post key={post.id} post={post} />;
+            return <Post key={post.id} post={post} getSlug={getSlug} />;
         });
     };
     return (

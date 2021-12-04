@@ -5,6 +5,7 @@ import Post from "./Post";
 const PostsByTag = (props) => {
     const posts = props.posts;
     const tag = props.tag;
+    const getSlug = props.getSlug;
 
     const filteredPosts = [];
     posts.filter((post) => {
@@ -17,7 +18,7 @@ const PostsByTag = (props) => {
 
     const ShowContent = () => {
         return filteredPosts.map((post) => {
-            return <Post key={post.id} post={post} />;
+            return <Post key={post.id} post={post} getSlug={getSlug} />;
         });
     };
     return (
