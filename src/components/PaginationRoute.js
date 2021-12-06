@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
+import StyledPaginationRoute from "./styled/PaginationRoute.styled";
 
 const PaginationRoute = (props) => {
     const { children } = props;
-    console.log("hello its paginationroute");
     const { limit } = props;
     const length = children.length;
 
@@ -17,15 +17,12 @@ const PaginationRoute = (props) => {
             <Link to={`/pages/${index + 1}`}>{index + 1}</Link>
         </li>
     ));
-    console.log(links);
 
     return (
-        <>
+        <StyledPaginationRoute>
             {children.slice(begin, end)}
-            <nav>
-                <ul>{links}</ul>
-            </nav>
-        </>
+            <ul>{links}</ul>
+        </StyledPaginationRoute>
     );
 };
 

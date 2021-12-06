@@ -1,10 +1,11 @@
 import React from "react";
 import StyledAboutAuthor from "./styled/AboutAuthor.styled";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { RichText } from "prismic-reactjs";
 
 const AboutAuthor = ({ props }) => {
     const img = props.data.image.url;
+    const { name } = useParams();
     return (
         <StyledAboutAuthor>
             <h2>{RichText.asText(props.data.name)}</h2>

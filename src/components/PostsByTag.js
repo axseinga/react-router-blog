@@ -1,11 +1,14 @@
 import React from "react";
 import StyledPosts from "./styled/Posts.styled";
 import Post from "./Post";
+import { useParams } from "react-router";
 
 const PostsByTag = (props) => {
     const posts = props.posts;
     const tag = props.tag;
     const getSlug = props.getSlug;
+
+    const { currentTag } = useParams();
 
     const filteredPosts = [];
     posts.filter((post) => {

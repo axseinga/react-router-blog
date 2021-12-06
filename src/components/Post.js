@@ -1,6 +1,6 @@
 import React from "react";
 import StyledPost from "./styled/Post.styled";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Post = (props) => {
     const { post, getSlug } = props;
@@ -12,6 +12,10 @@ const Post = (props) => {
     const author = post.data.author[0].text;
     const date = post.data.date;
     const uid = post.uid;
+
+    /*const { slugParam } = useParams();
+    const { currentTag } = useParams();
+    const { name } = useParams();*/
 
     return (
         <StyledPost>

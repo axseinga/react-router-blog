@@ -9,13 +9,10 @@ import SinglePost from "./SinglePost";
 
 const PostsContainer = (props) => {
     const { posts, author, tag, year, getSlug, slug } = props;
-    const { name, currentTag, currentYear, slugParam } = useParams();
+    /*const { name, currentTag, currentYear, slugParam } = useParams();*/
 
     return (
         <Switch>
-            <Route path="/">
-                <PostsAll posts={posts} slug={slug} getSlug={getSlug} />
-            </Route>
             <Route path="/about-us">
                 <AboutPage />
             </Route>
@@ -46,6 +43,10 @@ const PostsContainer = (props) => {
             <Route path="/post/:slugParam">
                 <SinglePost posts={posts} slug={slug} getSlug={getSlug} />
             </Route>
+            <Route path="/pages">
+                <PostsAll posts={posts} slug={slug} getSlug={getSlug} />
+            </Route>
+            <Redirect from="/" to="/pages/1" />
         </Switch>
     );
 };
