@@ -51,7 +51,7 @@ const Sidebar = (props) => {
             <h4>Navigation</h4>
             <NavLink
                 exact
-                to={`/`}
+                to={`/pages/1`}
                 className={(isActive) =>
                     "nav-link" + (!isActive ? " unselected" : "")
                 }

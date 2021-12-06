@@ -12,7 +12,7 @@ const Pagination = (props) => {
             <Route path={`/pages/:page`}>
                 <PaginationRoute limit={limit}>{children}</PaginationRoute>
             </Route>
-            {/*<Redirect to={`/pages/1`} />*/}
+            <Redirect to={`/pages/1`} />
         </Switch>
     );
 };

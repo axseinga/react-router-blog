@@ -1,7 +1,7 @@
 import React from "react";
 import PostsAll from "./PostsAll";
 import PostsByAuthor from "./PostsByAuthor";
-import { Route, useParams } from "react-router";
+import { Route, useParams, Switch, Redirect } from "react-router-dom";
 import AboutPage from "./Aboutpage";
 import PostsByTag from "./PostsByTag";
 import PostsByYear from "./PostsByYear";
@@ -12,14 +12,14 @@ const PostsContainer = (props) => {
     const { name, currentTag, currentYear, slugParam } = useParams();
 
     return (
-        <>
-            <Route exact path="/">
+        <Switch>
+            <Route path="/">
                 <PostsAll posts={posts} slug={slug} getSlug={getSlug} />
             </Route>
-            <Route exact path="/about-us">
+            <Route path="/about-us">
                 <AboutPage />
             </Route>
-            <Route exact path="/posts-by-:name">
+            <Route path="/posts-by-:name">
                 <PostsByAuthor
                     posts={posts}
                     author={author}
@@ -27,7 +27,7 @@ const PostsContainer = (props) => {
                     getSlug={getSlug}
                 />
             </Route>
-            <Route exact path="/category/:currentTag">
+            <Route path="/category/:currentTag">
                 <PostsByTag
                     posts={posts}
                     tag={tag}
@@ -35,7 +35,7 @@ const PostsContainer = (props) => {
                     getSlug={getSlug}
                 />
             </Route>
-            <Route exact path="/year/:currentYear">
+            <Route path="/year/:currentYear">
                 <PostsByYear
                     posts={posts}
                     year={year}
@@ -43,10 +43,10 @@ const PostsContainer = (props) => {
                     getSlug={getSlug}
                 />
             </Route>
-            <Route exact path="/post/:slugParam">
+            <Route path="/post/:slugParam">
                 <SinglePost posts={posts} slug={slug} getSlug={getSlug} />
             </Route>
-        </>
+        </Switch>
     );
 };
 
