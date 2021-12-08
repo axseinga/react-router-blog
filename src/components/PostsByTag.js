@@ -4,8 +4,7 @@ import Post from "./Post";
 import { useParams } from "react-router";
 
 const PostsByTag = (props) => {
-    const posts = props.posts;
-    const getSlug = props.getSlug;
+    const { posts } = props;
 
     const { currentTag } = useParams();
 
@@ -20,7 +19,7 @@ const PostsByTag = (props) => {
 
     const ShowContent = () => {
         return filteredPosts.map((post) => {
-            return <Post key={post.id} post={post} getSlug={getSlug} />;
+            return <Post key={post.id} post={post} />;
         });
     };
     return (

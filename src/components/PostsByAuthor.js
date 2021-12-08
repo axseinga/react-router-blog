@@ -4,8 +4,7 @@ import Post from "./Post";
 import { useParams } from "react-router";
 
 const PostsByAuthor = (props) => {
-    const posts = props.posts;
-    const getSlug = props.getSlug;
+    const { posts } = props;
 
     const { name } = useParams();
 
@@ -15,7 +14,7 @@ const PostsByAuthor = (props) => {
 
     const ShowContent = () => {
         return filteredPosts.map((post) => {
-            return <Post key={post.id} post={post} getSlug={getSlug} />;
+            return <Post key={post.id} post={post} />;
         });
     };
     return (

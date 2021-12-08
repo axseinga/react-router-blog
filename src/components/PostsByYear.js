@@ -4,8 +4,7 @@ import Post from "./Post";
 import { useParams } from "react-router";
 
 const PostsByYear = (props) => {
-    const posts = props.posts;
-    const getSlug = props.getSlug;
+    const { posts } = props;
 
     const { currentYear } = useParams();
 
@@ -17,7 +16,7 @@ const PostsByYear = (props) => {
     });
     const ShowContent = () => {
         return filteredPosts.map((post) => {
-            return <Post key={post.id} post={post} getSlug={getSlug} />;
+            return <Post key={post.id} post={post} />;
         });
     };
     return (

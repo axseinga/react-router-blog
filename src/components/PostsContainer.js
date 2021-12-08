@@ -8,7 +8,7 @@ import PostsByYear from "./PostsByYear";
 import SinglePost from "./SinglePost";
 
 const PostsContainer = (props) => {
-    const { posts, getSlug, slug } = props;
+    const { posts } = props;
 
     return (
         <Switch>
@@ -16,19 +16,19 @@ const PostsContainer = (props) => {
                 <AboutPage />
             </Route>
             <Route path="/posts-by-:name">
-                <PostsByAuthor posts={posts} slug={slug} getSlug={getSlug} />
+                <PostsByAuthor posts={posts} />
             </Route>
             <Route path="/category/:currentTag">
-                <PostsByTag posts={posts} slug={slug} getSlug={getSlug} />
+                <PostsByTag posts={posts} />
             </Route>
             <Route path="/year/:currentYear">
-                <PostsByYear posts={posts} slug={slug} getSlug={getSlug} />
+                <PostsByYear posts={posts} />
             </Route>
             <Route path="/post/:slugParam">
-                <SinglePost posts={posts} slug={slug} getSlug={getSlug} />
+                <SinglePost posts={posts} />
             </Route>
             <Route path="/pages">
-                <PostsAll posts={posts} slug={slug} getSlug={getSlug} />
+                <PostsAll posts={posts} />
             </Route>
             <Redirect from="/" to="/pages/1" />
         </Switch>

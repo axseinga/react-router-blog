@@ -4,12 +4,12 @@ import Post from "./Post";
 import Pagination from "./Pagination";
 
 const Posts = (props) => {
-    const { posts, getSlug } = props;
+    const { posts } = props;
     const ShowContent = (props) => {
         return (
             <Pagination posts={posts}>
                 {posts.map((post) => (
-                    <Post key={post.id} post={post} getSlug={getSlug} />
+                    <Post key={post.id} post={post} />
                 ))}
             </Pagination>
         );

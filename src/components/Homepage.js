@@ -10,7 +10,6 @@ const Homepage = () => {
     const [doc, setDocData] = useState(null);
     const [posts, setPostsData] = useState(null);
     const [authors, setAuthorsData] = useState(null);
-    const [slug, setSlug] = useState("");
 
     useEffect(() => {
         fetchData("page").then((resp) => {
@@ -29,32 +28,14 @@ const Homepage = () => {
         });
     }, []);
 
-    const getSlug = (uid) => {
-        console.log(uid);
-        setSlug(uid);
-    };
-
     return (
         <Router>
             <StyledHomepage>
                 <div>
-                    <HomepageBanner
-                        doc={doc}
-                        authors={authors}
-                    />
-                    {posts !== null && (
-                        <PostsContainer
-                            posts={posts}
-                            getSlug={getSlug}
-                            slug={slug}
-                        />
-                    )}
+                    <HomepageBanner doc={doc} authors={authors} />
+                    {posts !== null && <PostsContainer posts={posts} />}
                 </div>
-                {posts !== null && (
-                    <Sidebar
-                        posts={posts}
-                    />
-                )}
+                {posts !== null && <Sidebar posts={posts} />}
             </StyledHomepage>
         </Router>
     );

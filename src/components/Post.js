@@ -1,9 +1,9 @@
 import React from "react";
 import StyledPost from "./styled/Post.styled";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Post = (props) => {
-    const { post, getSlug } = props;
+    const { post } = props;
     const title = post.data.title[0].text;
     const desc = post.data.description[0].text;
     const content = post.data.content[0].text;
@@ -13,11 +13,9 @@ const Post = (props) => {
     const date = post.data.date;
     const uid = post.uid;
 
-    const { slugParam } = useParams();
-
     return (
         <StyledPost>
-            <Link to={`/post/${uid}`} onClick={() => getSlug(post.uid)}>
+            <Link to={`/post/${uid}`}>
                 <h2>{title}</h2>
             </Link>
             <h4>{desc}</h4>
