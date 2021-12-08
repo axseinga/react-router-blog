@@ -11,7 +11,14 @@ const HomepageBanner = (props) => {
             });
             return (
                 <StyledHomepageBanner>
-                    <h1>{RichText.asText(props.doc.data.page_title)}</h1>
+                    <NavLink
+                        exact
+                        to={`/pages/1`}
+                        className="nav-link"
+                        activeClassName="active"
+                    >
+                        <h1>{RichText.asText(props.doc.data.page_title)}</h1>
+                    </NavLink>
                     <div>
                         <p>Choose the author!</p>
                         <div>

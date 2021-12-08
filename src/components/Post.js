@@ -15,7 +15,7 @@ const Post = (props) => {
 
     return (
         <StyledPost>
-            <Link to={`/post/${uid}`}>
+            <Link to={`/post/${uid}`} className="post-title">
                 <h2>{title}</h2>
             </Link>
             <h4>{desc}</h4>
@@ -24,13 +24,18 @@ const Post = (props) => {
             <ul>
                 {tags.map((tag, i) => (
                     <li key={`tag_${i}`}>
-                        <Link to={`/category/${tag.tag}`}>{tag.tag}</Link>
+                        <Link to={`/category/${tag.tag}`} className="post-tag">
+                            {tag.tag}
+                        </Link>
                     </li>
                 ))}
             </ul>
             <div>
                 <span>
-                    Written by <Link to={`/posts-by-${author}`}>{author}</Link>
+                    Written by{" "}
+                    <Link to={`/posts-by-${author}`} className="post-link">
+                        {author}
+                    </Link>
                 </span>
                 <span>on {date}</span>
             </div>

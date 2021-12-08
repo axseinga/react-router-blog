@@ -11,9 +11,12 @@ const StyledPost = styled.article`
     border-right: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
 
-    & h2 {
+    & .post-title {
+        font-family: "Dancing Script", cursive;
         font-size: 2rem;
         letter-spacing: 0.7rem;
+        text-decoration: none;
+        color: black;
     }
 
     & h4 {
@@ -52,6 +55,21 @@ const StyledPost = styled.article`
 
     & span {
         margin-right: 0.5rem;
+    }
+
+    & .post-tag {
+        font-size: 1.3rem;
+        color: darkblue;
+        text-decoration: none;
+        letter-spacing: 0.3rem;
+        margin: 0 2rem;
+    }
+
+    & .post-link {
+        font-family: "Dancing Script", cursive;
+        font-size: 1.8rem;
+        color: darkblue;
+        text-decoration: none;
     }
 `;
 

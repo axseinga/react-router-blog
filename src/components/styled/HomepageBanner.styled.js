@@ -31,6 +31,16 @@ const StyledHomepageBanner = styled.section`
             outline-offset: -4px;
         }
     }
+
+    & .nav-link {
+        color: black;
+        text-decoration: none;
+    }
+
+    & .active {
+        color: black;
+        text-decoration: none;
+    }
 `;
 
 export default StyledHomepageBanner;
