@@ -18,9 +18,8 @@ const Sidebar = (props) => {
                     key={cat}
                     exact
                     to={`/category/${cat}`}
-                    className={(isActive) =>
-                        "nav-link" + (!isActive ? " unselected" : "")
-                    }
+                    className="nav-link"
+                    activeClassName="active"
                 >
                     {cat}
                 </NavLink>
@@ -35,9 +34,8 @@ const Sidebar = (props) => {
                     exact
                     key={y}
                     to={`/year/${y}`}
-                    className={(isActive) =>
-                        "nav-link" + (!isActive ? " unselected" : "")
-                    }
+                    className="nav-link"
+                    activeClassName="active"
                 >
                     {y}
                 </NavLink>
@@ -50,18 +48,16 @@ const Sidebar = (props) => {
             <NavLink
                 exact
                 to={`/pages/1`}
-                className={(isActive) =>
-                    "nav-link" + (!isActive ? " unselected" : "")
-                }
+                className="nav-link"
+                activeClassName="active"
             >
                 Home
             </NavLink>
             <NavLink
                 exact
                 to={`/about-us`}
-                className={(isActive) =>
-                    "nav-link" + (!isActive ? " unselected" : "")
-                }
+                className="nav-link"
+                activeClassName="active"
             >
                 About us
             </NavLink>

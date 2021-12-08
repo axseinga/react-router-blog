@@ -8,13 +8,13 @@ const StyledSidebar = styled.section`
     margin-top: 4rem;
 
     & .nav-link {
-        color: pink;
+        color: black;
         text-decoration: none;
         margin: 0.5rem 0;
     }
 
-    & .unselected {
-        color: black;
+    & .active {
+        text-decoration: underline;
     }
 
     & div {
