@@ -6,8 +6,9 @@ import Pagination from "./Pagination";
 const Posts = (props) => {
     const { posts } = props;
     const ShowContent = (props) => {
+        const path = "/pages";
         return (
-            <Pagination posts={posts}>
+            <Pagination posts={posts} path={path}>
                 {posts.map((post) => (
                     <Post key={post.id} post={post} />
                 ))}
