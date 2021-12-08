@@ -13,12 +13,16 @@ const StyledPaginationRoute = styled.div`
             font-family: "Dancing Script", cursive;
 
             & .nav-link {
-                text-decoration: underline;
+                color: black;
+                text-decoration: none;
+                margin: 0.5rem 0;
             }
 
-            & .unselected {
-                text-decoration: none;
-                color: black;
+            & .active {
+                text-decoration: underline;
+                border: 1px solid black;
+                border-radius: 50%;
+                padding: 0.5rem;
             }
         }
     }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import StyledPaginationRoute from "./styled/PaginationRoute.styled";
 
 const PaginationRoute = (props) => {
@@ -17,7 +17,13 @@ const PaginationRoute = (props) => {
     const pages = Math.ceil(length / limit);
     const links = new Array(pages).fill(0).map((item, index) => (
         <li key={index}>
-            <Link to={`${path}/${index + 1}`}>{index + 1}</Link>
+            <NavLink
+                className="nav-link"
+                activeClassName="active"
+                to={`${path}/${index + 1}`}
+            >
+                {index + 1}{" "}
+            </NavLink>
         </li>
     ));
 
