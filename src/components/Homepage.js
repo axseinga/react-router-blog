@@ -10,9 +10,6 @@ const Homepage = () => {
     const [doc, setDocData] = useState(null);
     const [posts, setPostsData] = useState(null);
     const [authors, setAuthorsData] = useState(null);
-    const [currentAuthor, setcurrentAuthor] = useState("");
-    const [currentTag, setCurrentTag] = useState("");
-    const [currentYear, setCurrentYear] = useState("");
     const [slug, setSlug] = useState("");
 
     useEffect(() => {
@@ -32,18 +29,6 @@ const Homepage = () => {
         });
     }, []);
 
-    const getAuthor = (author) => {
-        setcurrentAuthor(author);
-    };
-
-    const getTag = (tag) => {
-        setCurrentTag(tag);
-    };
-
-    const getYear = (year) => {
-        setCurrentYear(year);
-    };
-
     const getSlug = (uid) => {
         console.log(uid);
         setSlug(uid);
@@ -56,21 +41,19 @@ const Homepage = () => {
                     <HomepageBanner
                         doc={doc}
                         authors={authors}
-                        getAuthor={getAuthor}
                     />
                     {posts !== null && (
                         <PostsContainer
                             posts={posts}
-                            author={currentAuthor}
-                            tag={currentTag}
-                            year={currentYear}
                             getSlug={getSlug}
                             slug={slug}
                         />
                     )}
                 </div>
                 {posts !== null && (
-                    <Sidebar posts={posts} getTag={getTag} getYear={getYear} />
+                    <Sidebar
+                        posts={posts}
+                    />
                 )}
             </StyledHomepage>
         </Router>

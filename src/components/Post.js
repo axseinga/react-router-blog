@@ -13,9 +13,7 @@ const Post = (props) => {
     const date = post.data.date;
     const uid = post.uid;
 
-    /*const { slugParam } = useParams();
-    const { currentTag } = useParams();
-    const { name } = useParams();*/
+    const { slugParam } = useParams();
 
     return (
         <StyledPost>

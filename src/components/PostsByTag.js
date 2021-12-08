@@ -5,7 +5,6 @@ import { useParams } from "react-router";
 
 const PostsByTag = (props) => {
     const posts = props.posts;
-    const tag = props.tag;
     const getSlug = props.getSlug;
 
     const { currentTag } = useParams();
@@ -13,7 +12,7 @@ const PostsByTag = (props) => {
     const filteredPosts = [];
     posts.filter((post) => {
         post.data.tags.filter((v) => {
-            if (v.tag === tag) {
+            if (v.tag === currentTag) {
                 filteredPosts.push(post);
             }
         });

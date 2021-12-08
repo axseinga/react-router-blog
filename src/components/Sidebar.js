@@ -21,7 +21,6 @@ const Sidebar = (props) => {
                     className={(isActive) =>
                         "nav-link" + (!isActive ? " unselected" : "")
                     }
-                    onClick={() => props.getTag(cat)}
                 >
                     {cat}
                 </NavLink>
@@ -39,7 +38,6 @@ const Sidebar = (props) => {
                     className={(isActive) =>
                         "nav-link" + (!isActive ? " unselected" : "")
                     }
-                    onClick={() => props.getYear(y)}
                 >
                     {y}
                 </NavLink>
