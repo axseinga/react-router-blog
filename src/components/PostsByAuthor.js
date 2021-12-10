@@ -13,7 +13,7 @@ const PostsByAuthor = (props) => {
         (post) => post.data.author[0].text === name
     );
 
-    /*const path = `posts-by-${name}/pages`;
+    const path = `posts-by-${name}/pages`;
 
     const ShowContent = () => {
         return (
@@ -23,13 +23,13 @@ const PostsByAuthor = (props) => {
                 ))}
             </Pagination>
         );
-    };*/
+    };
 
-    const ShowContent = () => {
+    /*const ShowContent = () => {
         return filteredPosts.map((post) => {
             return <Post key={post.id} post={post} />;
         });
-    };
+    };*/
     return (
         <StyledPosts>
             <ShowContent />

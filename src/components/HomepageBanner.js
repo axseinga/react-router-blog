@@ -23,7 +23,10 @@ const HomepageBanner = (props) => {
                         <p>Choose the author!</p>
                         <div>
                             {imgs.map((img, i) => (
-                                <NavLink to={`/posts-by-${img.alt}`} key={i}>
+                                <NavLink
+                                    to={`/posts-by-${img.alt}/pages/1`}
+                                    key={i}
+                                >
                                     <img
                                         src={img.url}
                                         alt={`choose-${img.alt}`}

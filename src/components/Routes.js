@@ -12,7 +12,7 @@ const Routes = (props) => {
             <Route path="/about-us">
                 <AboutPage />
             </Route>
-            <Route path="/posts-by-:name">
+            <Route path="/posts-by-:name/pages/">
                 <PostsByAuthor posts={props.posts} />
             </Route>
             <Route path="/category/:currentTag">
