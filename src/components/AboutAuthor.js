@@ -12,7 +12,7 @@ const AboutAuthor = ({ props }) => {
             <div>
                 <NavLink
                     className="nav_link"
-                    to={`/posts-by-${RichText.asText(props.data.name)}`}
+                    to={`/posts-by-${RichText.asText(props.data.name)}/page/1`}
                 >
                     {RichText.asText(props.data.seemyposts)}
                 </NavLink>

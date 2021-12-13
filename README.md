@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# devmentor.pl - React: Router / React blog with prismic.io
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+-   [Overview](#overview)
+    -   [The challenge](#the-challenge)
+    -   [Video](#video)
+    -   [Links](#links)
+-   [My process](#my-process)
+    -   [Built with](#built-with)
+    -   [What I learned](#what-i-learned)
+    -   [Useful resources](#useful-resources)
+-   [Author](#author)
+-   [Acknowledgments](#acknowledgments)
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+### The challenge
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The challenge was to create a website that mimics a blog. The content had to be from [headless CMS](https://prismic.io/) and coded with React Router. The goal was to code links that will navigate the User to sorted posts (by tag, by year, by author) and to every single post. The issue to resolve was to come up with intuitive names for the routes so the User can easily navigate between the pages and that the links correctly describe the content. Pages had to be paginated with a limit of 6 posts per page.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Each post had to contain:
 
-### `npm test`
+-   title,
+-   description,
+-   content,
+-   photo,
+-   slug/alias,
+-   categories
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clickable parts:
 
-### `npm run build`
+-   the logo,
+-   authors' avatars,
+-   all links
+-   titles of the posts
+-   tags inside the posts
+-   authors' names inside the posts
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Video
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Links
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   Solution URL: [Check out my code](https://github.com/axseinga/react-router-blog)
+-   Live Site URL: [and see live site here!](https://axseinga-react-router-blog.netlify.app/)
 
-### `npm run eject`
+## My process
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I decided to fill in my blog with silly, cute content so I could quickly focus on coding the layout. I found this challenge difficult as headless CMS can be intimidating at first. However, after reading documentation and experimenting with content I soon was ready to start coding.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+First, I created a function that fetches data from prismic API so I can use it in my project. The use cases can be found in prismic React setup.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+const fetchData = async (type) => {
+    const response = await Client.query(
+        Prismic.Predicates.at("document.type", type)
+    );
+    if (response) {
+        return response;
+    }
+};
+```
 
-## Learn More
+I decided that I want my component to have a banner and sidebar menu so I created the following base components for my layout:
+`Homepage.js` which is the main page, `HomepageBanner.js`, `PostsContainer.js`, and `Sidebar.js`. This layout brought me some difficulties which I explain later.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+My pages: `PostsAll.js`, `PostsByAuthor.js`, `PostsByTag.js`, `PostsByYeay.js` and `AboutPage.js`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+My first approach with getting the values from onClick events, storing it with React Hook useState, and next passing to React routes was incorrect and resulted in wrong understanding with useParams() hook. It took me a lot of time trying to figure out how to fix my application but I couldn't make it work. After getting some help from my Mentor I deleted all useState hooks and focused on passing parameters from Links/NavLinks to useParams() hook. This way my Routes started to work in the way I wanted them to.
 
-### Code Splitting
+### Built with
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-   React
+-   Create React app
+-   React Hooks
+-   React Router
+-   React Transition Group lib
+-   Styled Components
+-   prismic.io
+-   Unsplash
 
-### Analyzing the Bundle Size
+### What I learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+I learned about headless CMS and how to use it which is very practical knowledge and lets creates project fit for clients who want to manage their content on the website.
+And I learned about React router and about useParams() and that is a lot! It took me some time to understand the concept which now seems easy. This was a good lesson for me to take things slow and to dive into documentation to fully understand how something works. It reminded me how important is to ask for help and get feedback from more experienced developers and to be humble for myself and to know that even the very difficult things at first can become understandable at some point.
 
-### Making a Progressive Web App
+### Useful resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+-   [prismic.io](https://prismic.io/) - headless CMS with easy UI to fill in data for the website. Can be fetch with API.
+-   [Reactrouter.com](https://reactrouter.com/) - documentation for every version of React Router.
+-   [Building a react router sidebar with react](https://thekenyandev.com/blog/building-a-react-router-sidebar-with-react/) - interesting tutorial from TheKenyaDev.
+-   [Unsplash.com](https://unsplash.com/) - the photos I used in this project come from Unsplash.
 
-### Advanced Configuration
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+-   Frontend Mentor - [@Axseinga](https://www.frontendmentor.io/profile/yourusername)
+-   LinkedIn - [Agnieszka Urbanowicz](https://www.linkedin.com/in/agnieszka-urbanowicz-051147151/)
 
-### Deployment
+## Acknowledgments
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thanks to my [Mentor - devmentor.pl](https://devmentor.pl/) - for providing me with this task and for code review.

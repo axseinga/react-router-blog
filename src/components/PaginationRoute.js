@@ -8,7 +8,7 @@ const PaginationRoute = (props) => {
     const { path } = props;
     const length = children.length;
 
-    console.log(path);
+    console.log(`paginationRoute: ${path}`);
 
     const { page } = useParams();
     const begin = limit * (page - 1);

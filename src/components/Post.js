@@ -24,7 +24,10 @@ const Post = (props) => {
             <ul>
                 {tags.map((tag, i) => (
                     <li key={`tag_${i}`}>
-                        <Link to={`/category/${tag.tag}`} className="post-tag">
+                        <Link
+                            to={`/category/${tag.tag}/page/1`}
+                            className="post-tag"
+                        >
                             {tag.tag}
                         </Link>
                     </li>
@@ -33,7 +36,10 @@ const Post = (props) => {
             <div>
                 <span>
                     Written by{" "}
-                    <Link to={`/posts-by-${author}`} className="post-link">
+                    <Link
+                        to={`/posts-by-${author}/page/1`}
+                        className="post-link"
+                    >
                         {author}
                     </Link>
                 </span>

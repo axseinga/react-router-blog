@@ -12,10 +12,7 @@ const Routes = (props) => {
             <Route path="/about-us">
                 <AboutPage />
             </Route>
-            <Route path="/posts-by-:name/pages/">
-                <PostsByAuthor posts={props.posts} />
-            </Route>
-            <Route path="/category/:currentTag">
+            <Route path="/category/:currentTag/page">
                 <PostsByTag posts={props.posts} />
             </Route>
             <Route path="/year/:currentYear">
@@ -24,10 +21,13 @@ const Routes = (props) => {
             <Route path="/post/:slugParam">
                 <SinglePost posts={props.posts} />
             </Route>
-            <Route path="/pages">
+            <Route path="/page">
                 <PostsAll posts={props.posts} />
             </Route>
-            <Redirect from="/" to="/pages/1" />
+            <Route path="/posts-by-:name/page/">
+                <PostsByAuthor posts={props.posts} />
+            </Route>
+            <Redirect from="/" to="/page/1" />
         </Switch>
     );
 };

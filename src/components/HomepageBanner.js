@@ -13,7 +13,7 @@ const HomepageBanner = (props) => {
                 <StyledHomepageBanner>
                     <NavLink
                         exact
-                        to={`/pages/1`}
+                        to={`/page/1`}
                         className="nav-link"
                         activeClassName="active"
                     >
@@ -24,7 +24,7 @@ const HomepageBanner = (props) => {
                         <div>
                             {imgs.map((img, i) => (
                                 <NavLink
-                                    to={`/posts-by-${img.alt}/pages/1`}
+                                    to={`/posts-by-${img.alt}/page/1`}
                                     key={i}
                                 >
                                     <img

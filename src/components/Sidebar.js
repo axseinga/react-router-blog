@@ -17,7 +17,7 @@ const Sidebar = (props) => {
                 <NavLink
                     key={cat}
                     exact
-                    to={`/category/${cat}`}
+                    to={`/category/${cat}/page/1`}
                     className="nav-link"
                     activeClassName="active"
                 >
@@ -33,7 +33,7 @@ const Sidebar = (props) => {
                 <NavLink
                     exact
                     key={y}
-                    to={`/year/${y}`}
+                    to={`/year/${y}/page/1`}
                     className="nav-link"
                     activeClassName="active"
                 >
@@ -47,7 +47,7 @@ const Sidebar = (props) => {
             <h4>Navigation</h4>
             <NavLink
                 exact
-                to={`/pages/1`}
+                to={`/page/1`}
                 className="nav-link"
                 activeClassName="active"
             >
