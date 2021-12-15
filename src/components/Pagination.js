@@ -6,8 +6,6 @@ const Pagination = (props) => {
     const { children, path } = props;
     const limit = 6;
 
-    console.log(`pagination: ${path}`);
-
     return (
         <Switch>
             <Route path={`${path}/:page`}>

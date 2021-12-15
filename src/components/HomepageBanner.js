@@ -2,6 +2,7 @@ import React from "react";
 import { RichText } from "prismic-reactjs";
 import StyledHomepageBanner from "./styled/HomepageBanner.styled";
 import { NavLink } from "react-router-dom";
+import HomepageBannerAuthors from "./HomepageBannerAuthors";
 
 const HomepageBanner = (props) => {
     const showContent = (props) => {
@@ -19,22 +20,7 @@ const HomepageBanner = (props) => {
                     >
                         <h1>{RichText.asText(props.doc.data.page_title)}</h1>
                     </NavLink>
-                    <div>
-                        <p>Choose the author!</p>
-                        <div>
-                            {imgs.map((img, i) => (
-                                <NavLink
-                                    to={`/posts-by-${img.alt}/page/1`}
-                                    key={i}
-                                >
-                                    <img
-                                        src={img.url}
-                                        alt={`choose-${img.alt}`}
-                                    />
-                                </NavLink>
-                            ))}
-                        </div>
-                    </div>
+                    <HomepageBannerAuthors imgs={imgs} />
                 </StyledHomepageBanner>
             );
         } else {

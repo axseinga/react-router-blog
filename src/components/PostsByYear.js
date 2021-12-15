@@ -1,8 +1,7 @@
 import React from "react";
 import StyledPosts from "./styled/Posts.styled";
-import Post from "./Post";
 import { useParams } from "react-router";
-import Pagination from "./Pagination";
+import ShowContent from "./ShowContentPagination";
 
 const PostsByYear = (props) => {
     const { posts } = props;
@@ -18,19 +17,9 @@ const PostsByYear = (props) => {
 
     const path = `/year/${currentYear}/page`;
 
-    const ShowContent = () => {
-        return (
-            <Pagination posts={filteredPosts} path={path}>
-                {filteredPosts.map((post) => (
-                    <Post key={post.id} post={post} />
-                ))}
-            </Pagination>
-        );
-    };
-
     return (
         <StyledPosts>
-            <ShowContent />
+            <ShowContent posts={filteredPosts} path={path} />
         </StyledPosts>
     );
 };

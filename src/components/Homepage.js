@@ -33,9 +33,9 @@ const Homepage = () => {
             <StyledHomepage>
                 <div>
                     <HomepageBanner doc={doc} authors={authors} />
-                    {posts !== null && <PostsContainer posts={posts} />}
+                    {posts && <PostsContainer posts={posts} />}
                 </div>
-                {posts !== null && <Sidebar posts={posts} />}
+                {posts && <Sidebar posts={posts} />}
             </StyledHomepage>
         </Router>
     );

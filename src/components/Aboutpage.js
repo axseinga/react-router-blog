@@ -14,7 +14,7 @@ const AboutPage = () => {
 
     return (
         <StyledAboutPage>
-            {authorsData !== null &&
+            {authorsData &&
                 authorsData.map((author) => (
                     <AboutAuthor key={author.id} props={author} />
                 ))}

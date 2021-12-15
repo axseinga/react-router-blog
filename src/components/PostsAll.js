@@ -1,23 +1,14 @@
 import React from "react";
 import StyledPosts from "./styled/Posts.styled";
-import Post from "./Post";
-import Pagination from "./Pagination";
+import ShowContent from "./ShowContentPagination";
 
 const Posts = (props) => {
     const { posts } = props;
-    const ShowContent = (props) => {
-        const path = "/page";
-        return (
-            <Pagination posts={posts} path={path}>
-                {posts.map((post) => (
-                    <Post key={post.id} post={post} />
-                ))}
-            </Pagination>
-        );
-    };
+    const path = "/page";
+
     return (
         <StyledPosts>
-            <ShowContent posts={posts} />
+            <ShowContent posts={posts} path={path} />
         </StyledPosts>
     );
 };
