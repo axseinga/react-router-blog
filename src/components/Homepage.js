@@ -5,6 +5,7 @@ import StyledHomepage from "./styled/Homepage.styled";
 import PostsContainer from "./PostsContainer";
 import Sidebar from "./Sidebar";
 import { HashRouter as Router } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 
 const Homepage = () => {
     const [doc, setDocData] = useState(null);
@@ -30,6 +31,7 @@ const Homepage = () => {
 
     return (
         <Router>
+            <ScrollToTop />
             <StyledHomepage>
                 <div>
                     <HomepageBanner doc={doc} authors={authors} />
