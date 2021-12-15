@@ -39,6 +39,12 @@ Clickable parts:
 
 ### Video
 
+
+
+https://user-images.githubusercontent.com/46648993/146189067-3b6ab078-4dd0-44e3-a88c-e88060c0c8e6.mov
+
+
+
 ### Links
 
 -   Solution URL: [Check out my code](https://github.com/axseinga/react-router-blog)
